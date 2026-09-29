@@ -15,6 +15,7 @@ function actualizarCanva(){
     limpiarCanva();
     graficarGato();
     graficarComida();
+    detectarColision();
     
 }
 
@@ -61,4 +62,13 @@ function moverArriba(){
 function moverAbajo(){
     gatoY=gatoY+10;
     actualizarCanva();
+}
+
+function detectarColision() {
+    if (gatoX < comidaX + ANCHO_COMIDA &&
+        gatoX + ANCHO_GATO > comidaX &&
+        gatoY < comidaY + ALTO_COMIDA &&
+        gatoY + ALTO_GATO > comidaY) {
+        alert("El gato comio!!");
+    }
 }
