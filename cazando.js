@@ -11,6 +11,13 @@ let gatoY=(canvas.height-ALTO_GATO)/2;
 let comidaX=480;
 let comidaY=480;
 
+function actualizarCanva(){
+    limpiarCanva();
+    graficarGato();
+    graficarComida();
+    
+}
+
 function graficarGato(){
     graficarRectangulo(gatoX,gatoY,ANCHO_GATO,ALTO_GATO,"red");
 }
@@ -31,3 +38,12 @@ function iniciarJuego(){
     graficarComida();
 }
 
+function limpiarCanva(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+}
+
+function moverIzquierda(){
+    gatoX=gatoX+10;
+    actualizarCanva();
+}
