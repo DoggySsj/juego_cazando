@@ -10,6 +10,7 @@ let gatoX=(canvas.width-ANCHO_GATO)/2;
 let gatoY=(canvas.height-ALTO_GATO)/2;
 let comidaX=480;
 let comidaY=480;
+let puntaje=0;
 
 function actualizarCanva(){
     limpiarCanva();
@@ -69,6 +70,25 @@ function detectarColision() {
         gatoX + ANCHO_GATO > comidaX &&
         gatoY < comidaY + ALTO_COMIDA &&
         gatoY + ALTO_GATO > comidaY) {
-        alert("El gato comio!!");
+        comidaAleatorio()
+        puntaje=puntaje+1;
+        document.getElementById("puntos").textContent=puntaje;
     }
 }
+
+function comidaAleatorio(){
+    comidaX=generarAleatorioX();
+    comidaY=generarAleatorioY()
+    actualizarCanva();
+}
+
+function generarAleatorioX(){
+    let numeroEntreroX= parseInt(Math.random()*(501-ANCHO_COMIDA));
+    return numeroEntreroX;
+}
+
+function generarAleatorioY(){
+    let numeroEntreroY= parseInt(Math.random()*(501-ALTO_COMIDA));
+    return numeroEntreroY;
+}
+
