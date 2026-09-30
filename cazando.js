@@ -14,7 +14,7 @@ let puntaje=0;
 let tiempo=10;
 
 
-setInterval(restarTiempo,1000);
+const INTERVALO=setInterval(restarTiempo,1000);
 
 function actualizarCanva(){
     limpiarCanva();
@@ -77,6 +77,11 @@ function detectarColision() {
         comidaAleatorio()
         puntaje=puntaje+1;
         document.getElementById("puntos").textContent=puntaje;
+        if (puntaje==1){
+            alert("El gato esta satisfecho!!!");
+            clearInterval(INTERVALO);
+        }
+        
     }
 }
 
@@ -98,6 +103,16 @@ function generarAleatorioY(){
 
 function restarTiempo(){
     tiempo=tiempo-1;
+    if (tiempo<=0){
+            alert("GAME OVER");
+            clearInterval(INTERVALO);
+        }
+    
     document.getElementById("tiempo").textContent=tiempo;
+
+}
+
+function reiniciar(){
+    location.reload();
 
 }
