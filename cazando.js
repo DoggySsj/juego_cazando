@@ -11,6 +11,10 @@ let gatoY=(canvas.height-ALTO_GATO)/2;
 let comidaX=480;
 let comidaY=480;
 let puntaje=0;
+let tiempo=10;
+
+
+setInterval(restarTiempo,1000);
 
 function actualizarCanva(){
     limpiarCanva();
@@ -92,3 +96,8 @@ function generarAleatorioY(){
     return numeroEntreroY;
 }
 
+function restarTiempo(){
+    tiempo=tiempo-1;
+    document.getElementById("tiempo").textContent=tiempo;
+
+}
