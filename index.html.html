@@ -1,32 +1,97 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Juego Cazando</title>
-  <link rel="stylesheet" href="cazando.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0914">
+    <title>Juego Cazando</title>
+    <link rel="stylesheet" href="cazando.css"/>
 </head>
+
 <body onload="iniciarJuego();">
 
-  <h1 >Juego Cazando</h1>
-  <p>Autor: Ian xd</p>
-  <canvas id="areaJuego" width="500" height="500" ></canvas>
+    <main class="contenedor">
 
-  <div class="controles">
-    <button onclick="moverArriba()">⬆</button>
-    <br>
-    <button onclick="moverIzquierda();">⬅</button>
-    <button onclick="moverAbajo()">⬇</button>
-    <button onclick="moverDerecha()">➡</button>
-    <br>
-    <button onclick="reiniciar()">REINICIAR</button>
-  </div>
+        <header class="encabezado">
+            <div class="etiqueta">
+                <span class="indicador"></span>
+                MINI GAME
+            </div>
 
+            <h1>Juego <span>Cazando</span></h1>
+            <p class="autor">Creado por <strong>Ian xd</strong></p>
+        </header>
 
-  <div class="panel">
-    <span>Puntos: <span id="puntos">0</span></span>
-    <span>Tiempo: <span id="tiempo">10</span></span>
-  </div>
+        <section class="zona-juego">
 
-  <p id="mensaje"></p>
-  <script src="cazando.js"> </script>
+            <div class="titulo-juego">
+                <span>ÁREA DE JUEGO</span>
+                <span class="estado-juego">● EN VIVO</span>
+            </div>
+
+            <div class="marco-canvas">
+                <canvas id="areaJuego" width="500" height="500"></canvas>
+            </div>
+
+            <div class="panel">
+
+                <div class="dato">
+                    <div class="dato-icono">🏆</div>
+                    <div class="dato-info">
+                        <span class="dato-titulo">PUNTUACIÓN</span>
+                        <span class="dato-valor" id="puntos">0</span>
+                    </div>
+                </div>
+
+                <div class="separador"></div>
+
+                <div class="dato">
+                    <div class="dato-icono">⏱️</div>
+                    <div class="dato-info">
+                        <span class="dato-titulo">TIEMPO</span>
+                        <span class="dato-valor"><span id="tiempo">10</span><small> s</small></span>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="zona-controles">
+
+            <div class="instrucciones">
+                <h2>Controles</h2>
+                <p>Usa las flechas para moverte</p>
+            </div>
+
+            <div class="controles">
+
+                <button class="control arriba" onclick="moverArriba()" aria-label="Mover arriba">⬆</button>
+
+                <div class="fila-controles">
+                    <button class="control" onclick="moverIzquierda();" aria-label="Mover izquierda">⬅</button>
+                    <button class="control" onclick="moverAbajo()" aria-label="Mover abajo">⬇</button>
+                    <button class="control" onclick="moverDerecha()" aria-label="Mover derecha">➡</button>
+                </div>
+
+                <button class="reiniciar" onclick="reiniciar()">
+                    <span>↻</span> REINICIAR PARTIDA
+                </button>
+
+            </div>
+
+        </section>
+
+        <p id="mensaje"></p>
+
+        <footer>
+            <span>JUEGO CAZANDO</span>
+            <span>HECHO CON JAVASCRIPT ♥</span>
+        </footer>
+
+    </main>
+
+    <script src="cazando.js"></script>
+
 </body>
 </html>
